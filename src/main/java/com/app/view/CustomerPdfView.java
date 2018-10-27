@@ -45,14 +45,14 @@ public class CustomerPdfView extends AbstractPdfView {
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Enabled"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Email"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Contact"))));
-		customers.forEach(order -> {
-			table.addCell(order.getCustId().toString());
-			table.addCell(order.getCustCode());
-			table.addCell(order.getCustAddr());
-			table.addCell(order.getCustLocs().toString());
-			table.addCell(order.getCustEnabled());
-			table.addCell(order.getCustEmail());
-			table.addCell(order.getCustContact());
+		customers.forEach(customer -> {
+			table.addCell(customer.getCustId().toString());
+			table.addCell(customer.getCustCode());
+			table.addCell(customer.getCustAddr());
+			table.addCell(customer.getCustLocs().toString());
+			table.addCell(customer.getCustEnabled());
+			table.addCell(customer.getCustEmail());
+			table.addCell(customer.getCustContact());
 		});
 		document.add(table);
 	}

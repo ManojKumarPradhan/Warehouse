@@ -44,13 +44,13 @@ public class ShipmentTypePdfView extends AbstractPdfView {
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Enable Shipment"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Grade"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("DESCRIPTION"))));
-		shipmentTypes.forEach(order -> {
-			table.addCell(order.getId().toString());
-			table.addCell(order.getMode());
-			table.addCell(order.getCode());
-			table.addCell(order.getEnabled());
-			table.addCell(order.getGrade());
-			table.addCell(order.getDsc());
+		shipmentTypes.forEach(shipmentType -> {
+			table.addCell(shipmentType.getId().toString());
+			table.addCell(shipmentType.getMode());
+			table.addCell(shipmentType.getCode());
+			table.addCell(shipmentType.getEnabled());
+			table.addCell(shipmentType.getGrade());
+			table.addCell(shipmentType.getDsc());
 		});
 		document.add(table);
 	}

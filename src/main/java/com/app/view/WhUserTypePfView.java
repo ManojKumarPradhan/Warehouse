@@ -47,16 +47,16 @@ public class WhUserTypePfView extends AbstractPdfView {
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("ID Type"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Other ID"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("ID Number"))));
-		whUserTypes.forEach(order -> {
-			table.addCell(order.getId().toString());
-			table.addCell(order.getType());
-			table.addCell(order.getCode());
-			table.addCell(order.getForType());
-			table.addCell(order.getEmail());
-			table.addCell(order.getContact());
-			table.addCell(order.getIdType());
-			table.addCell(order.getIfOther());
-			table.addCell(order.getIdNum());
+		whUserTypes.forEach(whUserType -> {
+			table.addCell(whUserType.getId().toString());
+			table.addCell(whUserType.getType());
+			table.addCell(whUserType.getCode());
+			table.addCell(whUserType.getForType());
+			table.addCell(whUserType.getEmail());
+			table.addCell(whUserType.getContact());
+			table.addCell(whUserType.getIdType());
+			table.addCell(whUserType.getIfOther());
+			table.addCell(whUserType.getIdNum());
 		});
 		document.add(table);
 	}

@@ -15,7 +15,7 @@
 					ALL UOM DATA </font>
 			</caption>
 			<tr bgcolor="lightgray">
-				<td colspan="8"><a href="excel" style="">Export Excel</a>
+				<td colspan="6"><a href="excel" style="">Export Excel</a>
 					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
 			</tr>
 			<tr style="height: 30px">

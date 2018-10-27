@@ -43,12 +43,12 @@ public class VendorPdfView extends AbstractPdfView {
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Code"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Desgnation"))));
 		table.addCell(getModifiedFactoryCell(new PdfPCell(new Phrase("Preserved"))));
-		vendors.forEach(order -> {
-			table.addCell(order.getId().toString());
-			table.addCell(order.getVenName());
-			table.addCell(order.getVenCode());
-			table.addCell(order.getVenDesg());
-			table.addCell(order.getVenPreserve().toString());
+		vendors.forEach(vendor -> {
+			table.addCell(vendor.getId().toString());
+			table.addCell(vendor.getVenName());
+			table.addCell(vendor.getVenCode());
+			table.addCell(vendor.getVenDesg());
+			table.addCell(vendor.getVenPreserve().toString());
 		});
 		document.add(table);
 	}
