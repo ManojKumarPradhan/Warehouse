@@ -49,14 +49,14 @@
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Customer Email ID</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:input path="custEmail" />
-					</td>
+					<td style="width: 55%" align="left"><form:input
+							path="custEmail" /></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Customer Contact</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:input path="custContact" />
-					</td>
+					<td style="width: 55%" align="left"><form:input
+							path="custContact" /></td>
 				</tr>
 				<tr style="height: 50px">
 					<td colspan="3" align="center"><input type="submit"
