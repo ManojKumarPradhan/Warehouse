@@ -14,6 +14,10 @@
 				<font size="8" color="green">
 					ALL ORDER METHOD DATA </font>
 			</caption>
+			<tr bgcolor="lightgray">
+				<td colspan="8"><a href="excel" style="">Export Excel</a>
+					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
+			</tr>
 			<tr style="height: 30px">
 				<th style="width: 3%">ID</th>
 				<th style="width: 12%">Order Mode</th>

@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.Uom;
 import com.app.service.IUomService;
+import com.app.view.UomExcelView;
+import com.app.view.UomPdfView;
 
 @Controller
 @RequestMapping("/uom")
@@ -57,5 +60,15 @@ public class UomController {
 		map.addAttribute("message", "Uom of ID '" + uom.getId() + "' Updated Sucessfully");
 		map.addAttribute("uoms", service.getAllUoms());
 		return "UomDatas";
+	}
+
+	@RequestMapping("/excel")
+	public ModelAndView getExcelView() {
+		return new ModelAndView(new UomExcelView(), new ModelMap().addAttribute("uoms", service.getAllUoms()));
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView getPDFView() {
+		return new ModelAndView(new UomPdfView(), new ModelMap().addAttribute("uoms", service.getAllUoms()));
 	}
 }
