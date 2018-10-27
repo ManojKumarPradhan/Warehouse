@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.app.model.Customer;
 import com.app.model.OrderMethod;
 import com.app.model.ShipmentType;
 import com.app.model.Uom;
@@ -55,7 +56,8 @@ public class AppConfig {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(getDataSource());
-		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class, Vendor.class);
+		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class, Vendor.class,
+				Customer.class);
 		bean.setHibernateProperties(props());
 		return bean;
 	}

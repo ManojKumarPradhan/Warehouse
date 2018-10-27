@@ -34,9 +34,9 @@ public class ShipmentTypeExcelView extends AbstractXlsxView {
 			row.createCell(0).setCellValue(shipmentType.getId());
 			row.createCell(1).setCellValue(shipmentType.getMode());
 			row.createCell(2).setCellValue(shipmentType.getCode());
-			row.createCell(2).setCellValue(shipmentType.getEnabled());
-			row.createCell(2).setCellValue(shipmentType.getGrade());
-			row.createCell(3).setCellValue(shipmentType.getDsc());
+			row.createCell(3).setCellValue(shipmentType.getEnabled());
+			row.createCell(4).setCellValue(shipmentType.getGrade());
+			row.createCell(5).setCellValue(shipmentType.getDsc());
 		}
 	}
 
@@ -44,10 +44,10 @@ public class ShipmentTypeExcelView extends AbstractXlsxView {
 		Row row = sheet.createRow(0);
 		row.createCell(0).setCellValue("ID");
 		row.createCell(1).setCellValue("Mode");
-		row.createCell(1).setCellValue("Code");
-		row.createCell(1).setCellValue("Enabled");
-		row.createCell(2).setCellValue("Grade");
-		row.createCell(3).setCellValue("DESCRIPTION");
+		row.createCell(2).setCellValue("Code");
+		row.createCell(3).setCellValue("Enabled");
+		row.createCell(4).setCellValue("Grade");
+		row.createCell(5).setCellValue("DESCRIPTION");
 	}
 
 }

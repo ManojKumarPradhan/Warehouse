@@ -34,9 +34,9 @@ public class OrderMethodExcelView extends AbstractXlsxView {
 			row.createCell(0).setCellValue(orderMethod.getId());
 			row.createCell(1).setCellValue(orderMethod.getMode());
 			row.createCell(2).setCellValue(orderMethod.getCode());
-			row.createCell(2).setCellValue(orderMethod.getMethod());
-			row.createCell(2).setCellValue(orderMethod.getAccept().toString());
-			row.createCell(3).setCellValue(orderMethod.getDsc());
+			row.createCell(3).setCellValue(orderMethod.getMethod());
+			row.createCell(4).setCellValue(orderMethod.getAccept().toString());
+			row.createCell(5).setCellValue(orderMethod.getDsc());
 		}
 	}
 
@@ -44,10 +44,10 @@ public class OrderMethodExcelView extends AbstractXlsxView {
 		Row row = sheet.createRow(0);
 		row.createCell(0).setCellValue("ID");
 		row.createCell(1).setCellValue("Mode");
-		row.createCell(1).setCellValue("Code");
-		row.createCell(1).setCellValue("Method");
-		row.createCell(2).setCellValue("Accept");
-		row.createCell(3).setCellValue("DESCRIPTION");
+		row.createCell(2).setCellValue("Code");
+		row.createCell(3).setCellValue("Method");
+		row.createCell(4).setCellValue("Accept");
+		row.createCell(5).setCellValue("DESCRIPTION");
 	}
 
 }
