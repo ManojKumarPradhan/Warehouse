@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.OrderMethod;
 import com.app.service.IOrderMethodService;
+import com.app.view.OrderMethodExcelView;
+import com.app.view.OrderMethodPdfView;
 
 @Controller
 @RequestMapping("/order")
@@ -57,5 +60,15 @@ public class OrderMethodController {
 		map.addAttribute("message", "Order Id  '" + orderMethod.getId() + "'  Updated Sucessfully");
 		map.addAttribute("orders", service.getAllOrderMethods());
 		return "OrderMethodDatas";
+	}
+	
+	@RequestMapping("/excel")
+	public ModelAndView getExcelView() {
+		return new ModelAndView(new OrderMethodExcelView(), new ModelMap().addAttribute("orders", service.getAllOrderMethods()));
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView getPDFView() {
+		return new ModelAndView(new OrderMethodPdfView(), new ModelMap().addAttribute("orders", service.getAllOrderMethods()));
 	}
 }

@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.ShipmentType;
 import com.app.service.IShipmentTypeService;
+import com.app.view.ShipmentTypeExcelView;
+import com.app.view.ShipmentTypePdfView;
 
 @Controller
 @RequestMapping("/shipment")
@@ -58,5 +61,15 @@ public class ShipmentTypeController {
 		map.addAttribute("message", "Order Id  '" + shipmentType.getId() + "'  Updated Sucessfully");
 		map.addAttribute("shipmentTypes", service.getAllShipmentTypes());
 		return "ShipmentTypeDatas";
+	}
+	
+	@RequestMapping("/excel")
+	public ModelAndView getExcelView() {
+		return new ModelAndView(new ShipmentTypeExcelView(), new ModelMap().addAttribute("shipments", service.getAllShipmentTypes()));
+	}
+	
+	@RequestMapping("/pdf")
+	public ModelAndView getPDFView() {
+		return new ModelAndView(new ShipmentTypePdfView(), new ModelMap().addAttribute("shipments", service.getAllShipmentTypes()));
 	}
 }

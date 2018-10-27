@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.app.model.WhUserType;
 import com.app.service.IWhUserTypeService;
+import com.app.view.WhUserTypeExcelVew;
+import com.app.view.WhUserTypePfView;
 
 @Controller
 @RequestMapping("/whuser")
@@ -57,5 +60,17 @@ public class WhUserTypeController {
 		map.addAttribute("message", " User Id  '" + whUserType.getId() + "'  Updated Sucessfully");
 		map.addAttribute("whUserTypes", service.getAllWhUserTypes());
 		return "WhUserTypeDatas";
+	}
+
+	@RequestMapping("/excel")
+	public ModelAndView getExcelView() {
+		return new ModelAndView(new WhUserTypeExcelVew(),
+				new ModelMap().addAttribute("users", service.getAllWhUserTypes()));
+	}
+
+	@RequestMapping("/pdf")
+	public ModelAndView getPDFView() {
+		return new ModelAndView(new WhUserTypePfView(),
+				new ModelMap().addAttribute("users", service.getAllWhUserTypes()));
 	}
 }
