@@ -31,12 +31,12 @@
 					<td style="width: 40%" align="right">Customer Locations</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:select
-							path="custLocs">
-							<form:checkbox path="custLocs" value="HYD" />HYDERABAD
-							<form:checkbox path="custLocs" value="BAN" />BAN
-							<form:checkbox path="custLocs" value="DEL" />DELI
-							<form:checkbox path="custLocs" value="CHN" />CHENNAI
-							<form:checkbox path="custLocs" value="KOC" />KOCHI
+							path="custLocs" multiple="true">
+							<form:option value="HYD" />HYDERABAD
+							<form:option value="BAN" />BAN
+							<form:option value="DEL" />DELI
+							<form:option value="CHN" />CHENNAI
+							<form:option value="KOC" />KOCHI
 						</form:select></td>
 				</tr>
 				<tr style="height: 50px">

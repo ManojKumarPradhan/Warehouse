@@ -6,6 +6,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>WhUserType Register</title>
+<script type="text/javascript" lang="JavaScript">
+	function userType(userType) {
+		var type;
+		if (userType.value == 'Vender') {
+			type = 'Purchase';
+		} else if (userType.value == 'Customer') {
+			type = 'Sale';
+		}
+		document.getElementById("forType").value = type;
+	}
+</script>
 </head>
 <body>
 
@@ -19,8 +30,9 @@
 					<td style="width: 40%" align="right">User Type</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:radiobutton
-							path="type" value="Vender" />Vender <form:radiobutton
-							path="type" value="Customer" />Customer</td>
+							path="type" value="Vender" id="type" onclick="userType(this)" />Vender
+						<form:radiobutton path="type" value="Customer" id="type"
+							onclick="userType(this)" />Customer</td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">User Code</td>
@@ -32,8 +44,7 @@
 					<td style="width: 40%" align="right">User ForType</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:input path="forType"
-							readonly="true" title="Purchase/sale" value="Purchase/sale"/>
-					</td>
+							readonly="true" id="forType" /></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">User Email Id</td>
