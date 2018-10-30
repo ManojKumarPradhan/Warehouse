@@ -30,7 +30,7 @@ public class ShipmentTypeController {
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertOrder(@ModelAttribute ShipmentType shipmentType, ModelMap map) {
-		map.addAttribute("message", "Order Saved with id '" + service.saveShipmentType(shipmentType) + "' Sucessfully");
+		map.addAttribute("message", "ShipmentType Saved with id '" + service.saveShipmentType(shipmentType) + "' Sucessfully");
 		map.addAttribute("shipmentType", new ShipmentType());
 		return "ShipmentTypeRegister";
 	}
@@ -44,7 +44,7 @@ public class ShipmentTypeController {
 	@RequestMapping("/delete")
 	public String deleteOrder(@RequestParam("id") Integer id, ModelMap map) {
 		service.deleteShipmentType(id);
-		map.addAttribute("message", "Order ID '" + id + "' Deleted Sucessfully");
+		map.addAttribute("message", "ShipmentType ID '" + id + "' Deleted Sucessfully");
 		map.addAttribute("shipmentTypes", service.getAllShipmentTypes());
 		return "ShipmentTypeDatas";
 	}
@@ -58,7 +58,7 @@ public class ShipmentTypeController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateOrder(@ModelAttribute ShipmentType shipmentType, ModelMap map) {
 		service.updateShipmentType(shipmentType);
-		map.addAttribute("message", "Order Id  '" + shipmentType.getId() + "'  Updated Sucessfully");
+		map.addAttribute("message", "ShipmentType Id  '" + shipmentType.getId() + "'  Updated Sucessfully");
 		map.addAttribute("shipmentTypes", service.getAllShipmentTypes());
 		return "ShipmentTypeDatas";
 	}

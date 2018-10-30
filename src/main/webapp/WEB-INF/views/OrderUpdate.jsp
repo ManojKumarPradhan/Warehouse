@@ -10,16 +10,19 @@
 <body>
 
 	<div align="center">
-		<h1>Order Method Edit Page</h1>
+		<h1
+			style="width: 600px; background-color: lightgreen; border-top-left-radius: 25px; border-top-right-radius: 25px;">Order
+			Method Edit Page</h1>
 	</div>
 	<div align="center">
-		<table>
+		<table
+			style="background-color: lightgray; width: 600px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
 			<form:form action="update" method="POST" modelAttribute="orderMethod">
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order ID</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:input path="id" readonly="true"/>
-					</td>
+					<td style="width: 55%" align="left"><form:input path="id"
+							readonly="true" /></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order Mode</td>
@@ -60,7 +63,8 @@
 				</tr>
 				<tr style="height: 50px">
 					<td colspan="3" align="center"><input type="submit"
-						value="Update Order Method"></td>
+						value="Update Order Method"
+						style="background-color: lightgreen; width: 150px; height: 40px; border-radius: 15px; border-color: green;"></td>
 				</tr>
 			</form:form>
 		</table>

@@ -10,10 +10,13 @@
 <body>
 
 	<div align="center">
-		<h1>Shipment Type Edit Page</h1>
+		<h1
+			style="width: 600px; background-color: lightgreen; border-top-left-radius: 25px; border-top-right-radius: 25px;">Shipment
+			Type Edit Page</h1>
 	</div>
 	<div align="center">
-		<table>
+		<table
+			style="background-color: lightgray; width: 600px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
 			<form:form action="update" method="POST"
 				modelAttribute="shipmentType">
 				<tr style="height: 50px">
@@ -60,7 +63,8 @@
 				</tr>
 				<tr style="height: 50px">
 					<td colspan="3" align="center"><input type="submit"
-						value="Update Shipment"></td>
+						value="Update Shipment"
+						style="background-color: lightgreen; width: 150px; height: 40px; border-radius: 15px; border-color: green;"></td>
 				</tr>
 			</form:form>
 		</table>

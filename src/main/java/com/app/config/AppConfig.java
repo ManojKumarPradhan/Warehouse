@@ -35,7 +35,7 @@ public class AppConfig {
 	@Autowired
 	private Environment env;
 
-	// datasource
+	// DataSource
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
@@ -51,7 +51,7 @@ public class AppConfig {
 		return basicDataSource;
 	}
 
-	// sessionfactory
+	// SessionFactory
 	@Bean
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
@@ -71,19 +71,19 @@ public class AppConfig {
 		return properties;
 	}
 
-	// hibernate template
+	// HibernateTemplate
 	@Bean
 	public HibernateTemplate getHibernateTemplate() {
 		return new HibernateTemplate(getSessionFactory().getObject());
 	}
 
-	// hibernate management
+	// HibernateTransactionManager
 	@Bean
 	public HibernateTransactionManager getTxManager() {
 		return new HibernateTransactionManager(getSessionFactory().getObject());
 	}
 
-	// resolver
+	// Resolver
 	@Bean
 	public InternalResourceViewResolver getResolver() {
 		return new InternalResourceViewResolver(env.getProperty("mvc.prefix"), env.getProperty("mvc.suffix"));

@@ -57,7 +57,7 @@ public class VendorController {
 	@RequestMapping("/update")
 	public String updateUom(@ModelAttribute Vendor vendor, ModelMap map) {
 		service.updateVendor(vendor);
-		map.addAttribute("message", "Uom of ID '" + vendor.getId() + "' Updated Sucessfully");
+		map.addAttribute("message", "Vendor of ID '" + vendor.getId() + "' Updated Sucessfully");
 		map.addAttribute("vendors", service.getAllVendors());
 		return "VendorDatas";
 	}

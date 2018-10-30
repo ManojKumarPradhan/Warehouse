@@ -29,7 +29,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertOrder(@ModelAttribute Customer customer, ModelMap map) {
-		map.addAttribute("message", "Order Saved with id '" + service.saveCustomer(customer) + "' Sucessfully");
+		map.addAttribute("message", "Customer Saved with id '" + service.saveCustomer(customer) + "' Sucessfully");
 		map.addAttribute("customer", new Customer());
 		return "CustomerRegister";
 	}
@@ -57,7 +57,7 @@ public class CustomerController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateOrder(@ModelAttribute Customer customer, ModelMap map) {
 		service.updateCustomer(customer);
-		map.addAttribute("message", "Order Id  '" + customer.getCustId() + "'  Updated Sucessfully");
+		map.addAttribute("message", "Customer Id  '" + customer.getCustId() + "'  Updated Sucessfully");
 		map.addAttribute("customers", service.getAllCustomers());
 		return "CustomerDatas";
 	}

@@ -22,7 +22,7 @@ public class VendorExcelVew extends AbstractXlsxView {
 		response.addHeader("Content-Disposition", "attachment;filename=VENDORs.xlsx");
 		Sheet sheet = workbook.createSheet("Vendor");
 		@SuppressWarnings("unchecked")
-		List<Vendor> vendors = (List<Vendor>) model.get("customers");
+		List<Vendor> vendors = (List<Vendor>) model.get("vendors");
 		setHead(sheet);
 		setBody(sheet, vendors);
 	}

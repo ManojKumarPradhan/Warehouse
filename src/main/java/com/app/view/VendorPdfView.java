@@ -29,7 +29,7 @@ public class VendorPdfView extends AbstractPdfView {
 		PdfPTable headTable = new PdfPTable(1);
 		headTable.setWidthPercentage(90);
 		headTable.setHorizontalAlignment(Element.ALIGN_CENTER);
-		PdfPCell headCell = new PdfPCell(new Phrase("ALL CUSTOMERS DATA"));
+		PdfPCell headCell = new PdfPCell(new Phrase("ALL VENDORS DATA"));
 		headCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		headCell.setVerticalAlignment(Element.ALIGN_CENTER);
 		headCell.setBackgroundColor(Color.LIGHT_GRAY);

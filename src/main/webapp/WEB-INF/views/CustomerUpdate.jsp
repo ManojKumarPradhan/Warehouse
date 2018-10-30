@@ -10,10 +10,13 @@
 <body>
 
 	<div align="center">
-		<h1>Customer Register Page</h1>
+		<h1
+			style="width: 600px; background-color: lightgreen; border-top-left-radius: 25px; border-top-right-radius: 25px;">Customer
+			Edit Page</h1>
 	</div>
 	<div align="center">
-		<table>
+		<table
+			style="background-color: lightgray; width: 600px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
 			<form:form action="update" method="POST" modelAttribute="customer">
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Customer ID</td>
@@ -65,8 +68,8 @@
 				</tr>
 				<tr style="height: 50px">
 					<td colspan="3" align="center"><input type="submit"
-						value="Update Customer" width="30%" height="80%"
-						style="background-color: aqua;"></td>
+						value="Update Customer"
+						style="background-color: lightgreen; width: 150px; height: 40px; border-radius: 15px; border-color: green;"></td>
 				</tr>
 			</form:form>
 		</table>
