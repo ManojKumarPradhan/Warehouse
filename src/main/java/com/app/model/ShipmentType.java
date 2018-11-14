@@ -6,12 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "shiptab")
 public class ShipmentType {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "shipment_gen")
+	@GenericGenerator(name = "shipment_gen", strategy = "increment")
 	@Column(name = "sid")
 	private Integer id;
 	@Column(name = "shipmode")

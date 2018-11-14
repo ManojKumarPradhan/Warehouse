@@ -40,4 +40,11 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 		return hibernateTemplate.loadAll(OrderMethod.class);
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<OrderMethod> getOrderMethodsByMode(String mode) {
+		String hql="from "+OrderMethod.class.getName()+" where mode=?";
+		return (List<OrderMethod>) hibernateTemplate.find(hql, mode);
+	}
+
 }

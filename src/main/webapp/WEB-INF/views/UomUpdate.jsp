@@ -6,17 +6,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Uom update</title>
+<style type="text/css">
+.err {
+	color: red;
+}
+</style>
 </head>
 <body>
 
 	<div align="center">
-		<h1
-			style="width: 600px; background-color: lightgreen; border-top-left-radius: 25px; border-top-right-radius: 25px;">UOM
-			EDIT Page</h1>
-	</div>
-	<div align="center">
+		<header style="width: 600px; font-size: 40px; font-weight: bold">UOM
+			EDIT Page</header>
 		<table
-			style="background-color: lightgray; width: 600px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
+			style="width: 600px;">
 			<form:form action="update" method="POST" modelAttribute="uom">
 				<tr style="height: 40px">
 					<td style="width: 40%" align="right">UOM ID</td>
@@ -32,24 +34,24 @@
 							<form:option value="packing">Packing</form:option>
 							<form:option value="No Packing">No Packing</form:option>
 							<form:option value="NA">--NA--</form:option>
-						</form:select></td>
+						</form:select> <br> <form:errors path="type" cssClass="err" /></td>
 				</tr>
 				<tr style="height: 40px">
 					<td style="width: 40%" align="right">UOM Model</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:input path="model" />
-					</td>
+					<td style="width: 55%" align="left"><form:input path="model" /><br>
+						<form:errors path="model" cssClass="err" /></td>
 				</tr>
 				<tr style="height: 40px">
 					<td style="width: 40%" align="right">Description</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:textarea path="dsc" />
-					</td>
+					<td style="width: 55%" align="left"><form:textarea path="dsc" /><br>
+						<form:errors path="dsc" cssClass="err" /></td>
 				</tr>
 				<tr style="height: 40px">
 					<td colspan="3" align="center"><input type="submit"
-						value="Update"
-						style="background-color: lightgreen; width: 150px; height: 40px; border-radius: 15px; border-color: green;"></td>
+						value="Create Uom"
+						style="width: 150px; height: 40px; font-size: 15px;"></td>
 				</tr>
 			</form:form>
 		</table>

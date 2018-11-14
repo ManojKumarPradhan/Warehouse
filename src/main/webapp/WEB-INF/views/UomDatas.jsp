@@ -9,12 +9,11 @@
 </head>
 <body>
 	<div align="center">
-		<table style="width: 75%" border="1">
+		<table style="width: 90%;" border="1">
 			<caption>
-				<font size="8" color="green">
-					ALL UOM DATA </font>
+				<font size="8"> ALL UOM DATA </font>
 			</caption>
-			<tr bgcolor="lightgray">
+			<tr>
 				<td colspan="6"><a href="excel" style="">Export Excel</a>
 					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
 			</tr>
@@ -31,23 +30,20 @@
 					<td><c:out value="${uom.type }"></c:out></td>
 					<td><c:out value="${uom.model }"></c:out></td>
 					<td><c:out value="${uom.dsc }"></c:out></td>
-					<td>
-						<a href="delete?id=${uom.id }">
-							<input type="button" value="Delete" style="width: 100%;height: 50px">
-						</a>
-					</td>
-					<td>
-						<a href="edit?id=${uom.id }">
-							<input type="button" value="Update" style="width: 100%;height: 50px">
-						</a>
-					</td>
+					<td><a href="delete?id=${uom.id }"> <input type="button"
+							value="Delete">
+					</a></td>
+					<td><a href="edit?id=${uom.id }"> <input type="button"
+							value="Update">
+					</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<br><br>
+	<br>
+	<br>
 	<div align="center">
-		<font size="6" color="red">${message }</font>
+		<font size="6">${message }</font>
 	</div>
 </body>
 </html>

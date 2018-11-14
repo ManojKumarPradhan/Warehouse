@@ -11,18 +11,21 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.app.model.Customer;
+import com.app.conveter.UserIdToObjectConveter;
+import com.app.model.Item;
 import com.app.model.OrderMethod;
+import com.app.model.PurchaseOrder;
 import com.app.model.ShipmentType;
 import com.app.model.Uom;
-import com.app.model.Vendor;
 import com.app.model.WhUserType;
 
 @Configuration
@@ -30,10 +33,13 @@ import com.app.model.WhUserType;
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private Environment env;
+
+	@Autowired
+	private UserIdToObjectConveter userConveter;
 
 	// DataSource
 	@Bean
@@ -56,8 +62,8 @@ public class AppConfig {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(getDataSource());
-		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class, Vendor.class,
-				Customer.class);
+		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class, Item.class,
+				PurchaseOrder.class);
 		bean.setHibernateProperties(props());
 		return bean;
 	}
@@ -87,5 +93,10 @@ public class AppConfig {
 	@Bean
 	public InternalResourceViewResolver getResolver() {
 		return new InternalResourceViewResolver(env.getProperty("mvc.prefix"), env.getProperty("mvc.suffix"));
+	}
+
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addConverter(userConveter);
 	}
 }

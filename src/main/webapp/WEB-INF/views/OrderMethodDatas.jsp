@@ -9,12 +9,11 @@
 </head>
 <body>
 	<div align="center">
-		<table style="width: 75%; " border="1" >
-			<caption style="background-color: aqua;">
-				<font size="8" color="green">
-					ALL ORDER METHOD DATA </font>
+		<table style="width: 75%;" border="1">
+			<caption>
+				<font size="8"> ALL ORDER METHOD DATA </font>
 			</caption>
-			<tr bgcolor="lightgray">
+			<tr>
 				<td colspan="8"><a href="excel" style="">Export Excel</a>
 					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
 			</tr>
@@ -35,23 +34,20 @@
 					<td><c:out value="${order.method }"></c:out></td>
 					<td><c:out value="${order.accept }"></c:out></td>
 					<td><c:out value="${order.dsc }"></c:out></td>
-					<td>
-						<a href="delete?id=${order.id }">
-							<input type="button" value="Delete" style="width: 100%;height: 50px">
-						</a>
-					</td>
-					<td>
-						<a href="edit?id=${order.id }">
-							<input type="button" value="Update" style="width: 100%;height: 50px">
-						</a>
-					</td>
+					<td><a href="delete?id=${order.id }"> <input type="button"
+							value="Delete">
+					</a></td>
+					<td><a href="edit?id=${order.id }"> <input type="button"
+							value="Update">
+					</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<br><br>
+	<br>
+	<br>
 	<div align="center">
-		<font size="6" color="red">${message }</font>
+		<font size="6">${message }</font>
 	</div>
 </body>
 </html>
