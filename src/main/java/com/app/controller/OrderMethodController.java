@@ -74,6 +74,7 @@ public class OrderMethodController {
 		return "OrderUpdate";
 	}
 
+	//excel
 	@RequestMapping("/excel")
 	public ModelAndView getExcelView() {
 		return new ModelAndView(new OrderMethodExcelView(),
