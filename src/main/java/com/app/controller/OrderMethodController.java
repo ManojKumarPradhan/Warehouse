@@ -33,6 +33,7 @@ public class OrderMethodController {
 
 	@RequestMapping("/all")
 	public String showAllOrder(ModelMap map) {
+		//get All Methods Data and send through map
 		map.addAttribute("orders", service.getAllOrderMethods());
 		return "OrderMethodDatas";
 	}
