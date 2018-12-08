@@ -2,6 +2,8 @@ package com.app.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,6 +40,13 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 	@Override
 	public List<OrderMethod> getAllOrderMethods() {
 		return hibernateTemplate.loadAll(OrderMethod.class);
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Override
+	public List<OrderMethod> getOrderMethodsByMode(String mode) {
+		return (List<OrderMethod>) hibernateTemplate
+				.findByCriteria(DetachedCriteria.forClass(OrderMethod.class).add(Restrictions.eq("mode", mode)));
 	}
 
 }

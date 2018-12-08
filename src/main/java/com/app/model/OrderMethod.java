@@ -13,12 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "ordertab")
 public class OrderMethod {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "order_method_gen")
+	@GenericGenerator(name = "order_method_gen", strategy = "increment")
 	@Column(name = "id")
 	private Integer id;
 

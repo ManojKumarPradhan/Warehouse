@@ -15,4 +15,6 @@ public interface IOrderMethodService {
 	public OrderMethod getOneOrderMethodById(Integer id);
 
 	public List<OrderMethod> getAllOrderMethods();
+	
+	public List<OrderMethod> getOrderMethodsByMode(String mode);
 }

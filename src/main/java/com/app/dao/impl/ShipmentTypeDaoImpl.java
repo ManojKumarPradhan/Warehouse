@@ -2,6 +2,8 @@ package com.app.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,6 +40,13 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 	@Override
 	public List<ShipmentType> getAllShipmentTypes() {
 		return hibernateTemplate.loadAll(ShipmentType.class);
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Override
+	public List<ShipmentType> getAllEnabledShipment(String enabled) {
+		return (List<ShipmentType>) hibernateTemplate
+				.findByCriteria(DetachedCriteria.forClass(ShipmentType.class).add(Restrictions.eq("enabled", enabled)));
 	}
 
 }

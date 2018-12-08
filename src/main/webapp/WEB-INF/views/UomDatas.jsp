@@ -1,53 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Uoms Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div align="center">
-		<table style="width: 75%" border="1">
-			<caption>
-				<font size="8" color="green">
-					ALL UOM DATA </font>
-			</caption>
-			<tr bgcolor="lightgray">
-				<td colspan="8"><a href="excel" style="">Export Excel</a>
-					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
-			</tr>
-			<tr style="height: 30px">
-				<th style="width: 3%">ID</th>
-				<th style="width: 15%">TYPE</th>
-				<th style="width: 20%">MODEL</th>
-				<th style="width: 52%">DESCRIPTION</th>
-				<th colspan="2" style="width: 10%">Operation</th>
-			</tr>
-			<c:forEach items="${uoms }" var="uom">
-				<tr style="height: 50px" align="center">
-					<td><c:out value="${uom.id }"></c:out></td>
-					<td><c:out value="${uom.type }"></c:out></td>
-					<td><c:out value="${uom.model }"></c:out></td>
-					<td><c:out value="${uom.dsc }"></c:out></td>
-					<td>
-						<a href="delete?id=${uom.id }">
-							<input type="button" value="Delete" style="width: 100%;height: 50px">
-						</a>
-					</td>
-					<td>
-						<a href="edit?id=${uom.id }">
-							<input type="button" value="Update" style="width: 100%;height: 50px">
-						</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-	<br><br>
-	<div align="center">
-		<font size="6" color="red">${message }</font>
+	<div class="container">
+
+		<div class="card">
+
+			<!-- card heading starts -->
+			<div class="card-header bg-info text-white">
+				<h2>WELCOME TO UOM DATA PAGE</h2>
+			</div>
+
+			<!-- card body start -->
+			<div class="card-body">
+				<div class="form-group">
+					<a href="excel" class="btn btn-info">Export Excel</a> &nbsp;&nbsp; |
+					&nbsp;&nbsp;&nbsp;<a href="pdf" class="btn btn-info" >PDF Export</a>
+				</div>
+				<c:choose>
+					<c:when test="${!empty uoms}">
+						<table class="table table-hover">
+							<tr>
+								<th>ID</th>
+								<th>TYPE</th>
+								<th>MODEL</th>
+								<th>DESCRIPTION</th>
+								<th colspan="2" width="20%">OPERATIONS</th>
+							</tr>
+							<c:forEach items="${uoms}" var="uom">
+								<tr>
+									<td><c:out value="${uom.id }"></c:out></td>
+									<td><c:out value="${uom.type }"></c:out></td>
+									<td><c:out value="${uom.model }"></c:out></td>
+									<td><c:out value="${uom.dsc }"></c:out></td>
+									<td><a href="edit?id=${uom.id}" class="btn btn-primary">EDIT</a></td>
+									<td><a href="delete?id=${uom.id}" class="btn btn-danger">DELETE</a></td>
+								</tr>
+							</c:forEach>
+						</table>
+					</c:when>
+					<c:otherwise>
+						<div class="text-info">No Data Found in Database</div>
+					</c:otherwise>
+				</c:choose>
+				<!-- card body end -->
+			</div>
+
+			<!-- card footer -->
+			<c:if test="${message ne null }">
+				<div class="card-footer bg-warning">${message}</div>
+			</c:if>
+
+			<!-- card end -->
+		</div>
+		<!-- container end -->
 	</div>
 </body>
 </html>

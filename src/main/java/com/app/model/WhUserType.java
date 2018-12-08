@@ -6,12 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "wh_user_tab")
 public class WhUserType {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "whuser_gen")
+	@GenericGenerator(name = "whuser_gen", strategy = "increment")
 	@Column(name = "uid")
 	private Integer id;
 

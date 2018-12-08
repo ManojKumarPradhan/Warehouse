@@ -6,12 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "uomtab")
 public class Uom {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "uom_gen")
+	@GenericGenerator(name = "uom_gen", strategy = "increment")
 	@Column(name = "uid")
 	private Integer id;
 	@Column(name = "utype")
@@ -69,6 +72,7 @@ public class Uom {
 	public void setDsc(String dsc) {
 		this.dsc = dsc;
 	}
+
 
 	@Override
 	public String toString() {

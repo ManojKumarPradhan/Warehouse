@@ -11,14 +11,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.app.conveter.UserIdToObjectConveter;
+import com.app.model.Item;
 import com.app.model.OrderMethod;
+import com.app.model.PurchaseOrder;
 import com.app.model.ShipmentType;
 import com.app.model.Uom;
 import com.app.model.WhUserType;
@@ -28,12 +33,15 @@ import com.app.model.WhUserType;
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private Environment env;
 
-	// datasource
+	@Autowired
+	private UserIdToObjectConveter userConveter;
+
+	// DataSource
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
@@ -49,12 +57,13 @@ public class AppConfig {
 		return basicDataSource;
 	}
 
-	// sessionfactory
+	// SessionFactory
 	@Bean
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean bean = new LocalSessionFactoryBean();
 		bean.setDataSource(getDataSource());
-		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class);
+		bean.setAnnotatedClasses(Uom.class, OrderMethod.class, ShipmentType.class, WhUserType.class, Item.class,
+				PurchaseOrder.class);
 		bean.setHibernateProperties(props());
 		return bean;
 	}
@@ -68,21 +77,26 @@ public class AppConfig {
 		return properties;
 	}
 
-	// hibernate template
+	// HibernateTemplate
 	@Bean
 	public HibernateTemplate getHibernateTemplate() {
 		return new HibernateTemplate(getSessionFactory().getObject());
 	}
 
-	// hibernate management
+	// HibernateTransactionManager
 	@Bean
 	public HibernateTransactionManager getTxManager() {
 		return new HibernateTransactionManager(getSessionFactory().getObject());
 	}
 
-	// resolver
+	// Resolver
 	@Bean
 	public InternalResourceViewResolver getResolver() {
 		return new InternalResourceViewResolver(env.getProperty("mvc.prefix"), env.getProperty("mvc.suffix"));
+	}
+
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addConverter(userConveter);
 	}
 }

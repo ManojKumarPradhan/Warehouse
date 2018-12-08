@@ -2,6 +2,8 @@ package com.app.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,6 +40,13 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 	@Override
 	public List<WhUserType> getAllWhUserTypes() {
 		return hibernateTemplate.loadAll(WhUserType.class);
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Override
+	public List<WhUserType> getWhUserByType(String type) {
+		return (List<WhUserType>) hibernateTemplate
+				.findByCriteria(DetachedCriteria.forClass(WhUserType.class).add(Restrictions.eq("type", type)));
 	}
 
 }

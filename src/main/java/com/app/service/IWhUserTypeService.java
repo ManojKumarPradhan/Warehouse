@@ -15,4 +15,6 @@ public interface IWhUserTypeService {
 	public WhUserType getOneWhUserTypeById(Integer id);
 
 	public List<WhUserType> getAllWhUserTypes();
+	
+	public List<WhUserType> getWhUserByType(String type);
 }
