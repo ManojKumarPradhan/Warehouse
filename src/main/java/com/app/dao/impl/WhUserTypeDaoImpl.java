@@ -40,4 +40,11 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 		return hibernateTemplate.loadAll(WhUserType.class);
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<WhUserType> getWhUserByType(String type) {
+		String hql_by_type = "from " + WhUserType.class.getName() + " where type=?";
+		return (List<WhUserType>) hibernateTemplate.find(hql_by_type, type);
+	}
+
 }

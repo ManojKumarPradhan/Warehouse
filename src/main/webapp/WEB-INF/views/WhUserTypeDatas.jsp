@@ -9,11 +9,14 @@
 </head>
 <body>
 	<div align="center">
-		<table style="width: 90%" border="1">
+		<table style="width: 90%;" border="1">
 			<caption>
-				<font size="8" color="cyan">
-					ALL WAREHOUSE USER DATA </font>
+				<font size="8"> ALL WAREHOUSE USER DATA </font>
 			</caption>
+			<tr bgcolor="#00FF7F">
+				<td colspan="11"><a href="excel" style="">Export Excel</a>
+					&nbsp;&nbsp; | &nbsp;&nbsp;<a href="pdf">PDF Export</a></td>
+			</tr>
 			<tr style="height: 30px">
 				<th style="width: 3%">ID</th>
 				<th style="width: 10%">User Type</th>
@@ -37,21 +40,18 @@
 					<td><c:out value="${user.idType }"></c:out></td>
 					<td><c:out value="${user.ifOther }"></c:out></td>
 					<td><c:out value="${user.idNum }"></c:out></td>
-					<td>
-						<a href="delete?id=${user.id }">
-							<input type="button" value="Delete" style="width: 100%;height: 50px">
-						</a>
-					</td>
-					<td>
-						<a href="edit?id=${user.id }">
-							<input type="button" value="Update" style="width: 100%;height: 50px">
-						</a>
-					</td>
+					<td><a href="delete?id=${user.id }"> <input type="button"
+							value="Delete">
+					</a></td>
+					<td><a href="edit?id=${user.id }"> <input type="button"
+							value="Update">
+					</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<br><br>
+	<br>
+	<br>
 	<div align="center">
 		<font size="6" color="red">${message }</font>
 	</div>

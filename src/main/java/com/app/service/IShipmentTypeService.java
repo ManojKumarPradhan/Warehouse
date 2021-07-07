@@ -15,4 +15,6 @@ public interface IShipmentTypeService {
 	public ShipmentType getOneShipmentTypeById(Integer id);
 
 	public List<ShipmentType> getAllShipmentTypes();
+	
+	public List<ShipmentType> getAllEnabledShipment(String enabled);
 }

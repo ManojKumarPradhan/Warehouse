@@ -41,4 +41,9 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService {
 		return dao.getAllWhUserTypes();
 	}
 
+	@Transactional(readOnly = true)
+	public List<WhUserType> getWhUserByType(String type) {
+		return dao.getWhUserByType(type);
+	}
+
 }

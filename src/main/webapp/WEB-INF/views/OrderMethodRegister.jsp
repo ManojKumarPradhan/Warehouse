@@ -6,27 +6,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order_Method Register</title>
+<style type="text/css">
+.err {
+	color: red;
+}
+</style>
 </head>
 <body>
 
 	<div align="center">
-		<h1>Order Method Register Page</h1>
+		<header style="width: 650px; font-size: 36px; font-weight: bold">Order
+			Method Register Page</header>
 	</div>
 	<div align="center">
-		<table>
+		<table style="width: 650px;">
 			<form:form action="insert" method="POST" modelAttribute="orderMethod">
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order Mode</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:radiobutton
 							path="mode" value="sale" />Sale <form:radiobutton path="mode"
-							value="purchase" />Purchase</td>
+							value="purchase" />Purchase <br>
+					<form:errors path="mode" cssClass="err"/></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order Code</td>
 					<td style="width: 5%" align="center">:</td>
-					<td style="width: 55%" align="left"><form:input path="code" />
-					</td>
+					<td style="width: 55%" align="left"><form:input path="code" /><br>
+					<form:errors path="code" cssClass="err"/></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order Method</td>
@@ -37,24 +44,29 @@
 							<form:option value="LIFO">LIFO</form:option>
 							<form:option value="FCFO">FCFO</form:option>
 							<form:option value="FEFO">FEFO</form:option>
-						</form:select></td>
+						</form:select><br>
+					<form:errors path="method" cssClass="err"/></td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Order Accept</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:checkbox
 							path="accept" value="Multi-Model" />Multi-Model<br> <form:checkbox
-							path="accept" value="Accept Return" />Accept Return</td>
+							path="accept" value="Accept Return" />Accept Return
+					<br><form:errors path="accept" cssClass="err"/>		
+					</td>
 				</tr>
 				<tr style="height: 50px">
 					<td style="width: 40%" align="right">Description</td>
 					<td style="width: 5%" align="center">:</td>
 					<td style="width: 55%" align="left"><form:textarea path="dsc" />
-					</td>
+						<br>
+					<form:errors path="dsc" cssClass="err"/></td>
 				</tr>
 				<tr style="height: 50px">
 					<td colspan="3" align="center"><input type="submit"
-						value="Create Order Method" width="200px" height="40px"></td>
+						value="Create Order Method"
+						style="width: 200px; height: 40px; font-size: 15px;"></td>
 				</tr>
 			</form:form>
 		</table>

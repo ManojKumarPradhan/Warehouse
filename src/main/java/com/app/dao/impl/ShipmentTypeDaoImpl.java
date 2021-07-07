@@ -40,4 +40,11 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 		return hibernateTemplate.loadAll(ShipmentType.class);
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<ShipmentType> getAllEnabledShipment(String enabled) {
+		String query = "from " + ShipmentType.class.getName() + " where enabled=?";
+		return (List<ShipmentType>) hibernateTemplate.find(query, enabled);
+	}
+
 }

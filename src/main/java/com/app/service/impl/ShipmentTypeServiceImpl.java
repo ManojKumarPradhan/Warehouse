@@ -41,4 +41,10 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 		return dao.getAllShipmentTypes();
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<ShipmentType> getAllEnabledShipment(String enabled) {
+		return dao.getAllEnabledShipment(enabled);
+	}
+
 }
